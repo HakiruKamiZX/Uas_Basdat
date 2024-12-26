@@ -1,19 +1,16 @@
 <?php
-// Database connection
 $servername = "localhost";
-$username = "root"; // Replace with your MySQL username
-$password = ""; // Replace with your MySQL password
-$dbname = "datamahasiswa"; // Replace with your database name
+$username = "root"; 
+$password = ""; 
+$dbname = "datamahasiswa"; 
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch data
+
 $sql = "SELECT * FROM students";
 $result = $conn->query($sql);
 ?>
@@ -41,7 +38,6 @@ $result = $conn->query($sql);
             </thead>
             <tbody>
                 <?php
-                // Make sure this PHP code generates rows dynamically
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
