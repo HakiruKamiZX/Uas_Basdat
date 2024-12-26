@@ -29,6 +29,7 @@ $result = $conn->query($sql);
         <table>
             <thead>
                 <tr>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>NIM</th>
                     <th>Alamat</th>
@@ -41,6 +42,7 @@ $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
+                                <td>" . $row["id"] . "</td>
                                 <td>" . $row["nama"] . "</td>
                                 <td>" . $row["nim"] . "</td>
                                 <td>" . $row["alamat"] . "</td>
