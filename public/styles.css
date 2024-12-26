@@ -1,0 +1,163 @@
+  body {
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column; 
+    padding: 20px;
+  }
+
+  /* Bagian Form */
+
+  .container-form {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    text-align: center;
+}
+
+.container-form h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.container-form p {
+    font-size: 0.9rem;
+    color: #bbbbbb;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.form-group select {
+    -webkit-appearance: none;  
+    -moz-appearance: none;     
+    appearance: none;         
+    background-color: #2a2a2a;
+    /* background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"%3E%3Cpath fill="none" stroke="%23fff" stroke-width="1" d="M1 4L6 9L11 4" /%3E%3C/svg%3E');  */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+.form-group input::placeholder,
+.form-group select {
+    color: #888888;
+}
+
+  /* Bagian Tabel */
+
+  .container {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem; 
+    text-align: center;
+  }
+
+  table {
+    width:  60%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+
+  th {
+    background-color: rgb(255, 0, 0);
+  }
+
+  /* Bagian Button */
+
+  .submit-btn {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #333333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  .submit-btn:hover {
+    background-color: #444444;
+  }
+
+  .back-link {
+    position: fixed; 
+    top: 20px; 
+    left: 20px; 
+    text-decoration: none; 
+  }
+
+  .back-btn {
+    background-color: #333333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+  }
+
+  .back-btn:hover {
+    background-color: #df0000;
+  }
+
+  .back-link:hover .back-btn {
+    background-color: #ff0000;
+  }
+
+  /* .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  } */

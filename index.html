@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Insert Data</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Input Data Mahasiswa FMIPA UNJ</title>
+  <link rel="stylesheet" href="public/styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Insert Data</h1>
+  <div class="container-form">
+    <h1>Form Input Data</h1>
     <p>Masukkan Data-Data yang Relevan</p>
     <form action="insert_data.php" method="POST">
         <div class="form-group">
@@ -21,17 +21,37 @@
         </div>
         <div class="form-group">
             <label for="alamat">Alamat</label>
-            <input type="text" id="alamat" name="alamat" placeholder="Enter Alamat">
+            <input type="text" id="alamat" name="alamat" placeholder="Enter Alamat" required>
         </div>
         <div class="form-group">
             <label for="prodi">Prodi</label>
-            <input type="text" id="prodi" name="prodi" placeholder="Enter Prodi">
+            <select id="prodi" name="prodi" required>
+                <option value="Kimia">Kimia</option>
+                <option value="Pendidikan Kimia">Pendidikan Kimia</option>
+                <option value="Fisika">Fisika</option>
+                <option value="Pendidikan Fisika">Pendidikan Fisika</option>
+                <option value="Biologi">Biologi</option>
+                <option value="Pendidikan Biologi">Pendidikan Biologi</option>
+                <option value="Matematika">Matematika</option>
+                <option value="Pendidikan Matematika">Pendidikan Matematika</option>
+                <option value="Statistika">Statistika</option>
+                <option value="Ilmu Komputer">Ilmu Komputer</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="ukt">UKT</label>
-            <input type="number" id="ukt" name="ukt" placeholder="Enter UKT">
+            <select id="ukt" name="ukt" required>
+                <option value="500000">500000</option>
+                <option value="1000000">1000000</option>
+                <option value="2700000">2700000</option>
+                <option value="3000000">3000000</option>
+                <option value="5000000">5000000</option>
+                <option value="6000000">6000000</option>
+                <option value="8000000">8000000</option>
+                <option value="8800000">8800000</option>
+            </select>
         </div>
-        <button type="submit" class="submit-btn">Submit →</button>
+        <button type="submit" class="submit-btn">Submit</button>
     </form>
   </div>
 </body>
