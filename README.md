@@ -14,7 +14,7 @@ Membuat frontend input data mahasiswa dan input data ke database MySQL
 2. **Bikin Database:**
    - Buka phpMyAdmin di browser: `http://localhost/phpmyadmin`.
    - Buat database baru: `datamahasiswa`.
-   - Jalankan query SQL berikut untuk membuat tabel `students`:
+   - Jalankan query SQL untuk buat tabel `students`:
      ```sql
      CREATE TABLE students (
          -- id INT AUTO_INCREMENT PRIMARY KEY, (optional) -- 
@@ -27,10 +27,10 @@ Membuat frontend input data mahasiswa dan input data ke database MySQL
      ```
 
 5. **Cara Run:**
-   - Buka browser dan navigasikan ke: `http://localhost/ProyekUAS/index.html`.
+   - Buka browser, copas link disamping: `http://localhost/ProyekUAS/index.html`.
 
 6. **Uji Formu:**
-   - Isi formulir dan klik **Submit**.
+   - Isi form dan **Submit**.
    - Cek data di phpMyAdmin di database `datamahasiswa` dan tabel `students`.
 
 ---
