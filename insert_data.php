@@ -28,6 +28,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($valid) {
+        $sqlCheckNIM = "SELECT * FROM students WHERE nim = '$nim'";
+        $result = $conn->query($sqlCheckNIM);
+
+        if ($result->num_rows > 0) {
+            $nimError = "NIM sudah terdaftar";
+            $valid = false;
+        }
+    }
+
+    if ($valid) {
         $sql = "INSERT INTO students (nama, nim, alamat, prodi, ukt) 
                 VALUES ('$nama', '$nim', '$alamat', '$prodi', '$ukt')";
 
@@ -40,14 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<script>alert('NIM: $nimError \\nUKT: $uktError');</script>";
     }
-
-        // if ($conn->query($sql) === TRUE) {
-    //     echo "New record created successfully";
-    // } else {
-    //     echo "Error: " . $sql . "<br>" . $conn->error;
-    // }
 }
 
 $conn->close();
 ?>
-
