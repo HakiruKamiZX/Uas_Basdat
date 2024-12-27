@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valid = false;
     }
 
-    if (!preg_match('/^\d{6,8}$/', $ukt)) {
+    if (!preg_match('/^\d{0,8}$/', $ukt)) {
         $uktError = "UKT must be between 6 and 8    .";
         $valid = false;
     }
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 VALUES ('$nama', '$nim', '$alamat', '$prodi', '$ukt')";
 
         if ($conn->query($sql) === TRUE) {
-            header("Location: display_data.php");
+            header("Location: display_data-ver2.php");
             exit();
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;

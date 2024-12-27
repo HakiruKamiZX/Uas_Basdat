@@ -27,10 +27,10 @@ $result = $conn->query($sql);
         <h1>Data Mahasiswa</h1>
         <div id="container-btn">
         <a href="nomor1.php">
-            <button type="button" class="submit-btn">Calculate Statistics</button>
+            <button type="button" class="submit-btn">Statisitk 5 Serangkai</button>
         </a>
         <a href="nomor3verA.php">
-            <button type="button" class="submit-btn">Calculate Statistics</button>
+            <button type="button" class="submit-btn">Standar Deviasi Manual</button>
         </a>
         </div>
         <table>

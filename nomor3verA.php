@@ -24,7 +24,7 @@ $result = $conn->query($sql);
 </head>
 <body>
     <div class="statistics-container">
-        <h1>Standard Deviation Calculation Result</h1>
+        <h1>Standar Deviasi</h1>
 
         <?php if ($result && $result->num_rows > 0): ?>
             <table>

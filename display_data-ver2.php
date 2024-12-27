@@ -4,14 +4,12 @@ $username = "root";
 $password = "";
 $dbname = "datamahasiswa";
 
-// Koneksi ke database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fungsi untuk menghitung median
 function calculateMedian($data) {
     $count = count($data);
     $middle = floor($count / 2);
@@ -23,7 +21,6 @@ function calculateMedian($data) {
     }
 }
 
-// Fungsi untuk menghitung lima serangkai
 function calculateFiveSummary($data) {
     $count = count($data);
     $min = min($data);
@@ -41,19 +38,24 @@ function calculateFiveSummary($data) {
     ];
 }
 
-// Fungsi untuk menghitung pencilan
 function calculateOutliers($data) {
     $fiveSummary = calculateFiveSummary($data);
     $iqr = $fiveSummary["Q3"] - $fiveSummary["Q1"];
     $lowerBound = $fiveSummary["Q1"] - 1.5 * $iqr;
     $upperBound = $fiveSummary["Q3"] + 1.5 * $iqr;
 
-    return array_filter($data, function ($value) use ($lowerBound, $upperBound) {
+    $outliers = array_filter($data, function ($value) use ($lowerBound, $upperBound) {
         return $value < $lowerBound || $value > $upperBound;
     });
+
+    return [
+        'outliers' => $outliers,
+        'lowerBound' => $lowerBound,
+        'upperBound' => $upperBound
+    ];
 }
 
-// Fungsi untuk menghitung standar deviasi
+
 function calculateStandardDeviation($data) {
     $mean = array_sum($data) / count($data);
     $sumSquaredDifferences = array_reduce($data, function ($carry, $item) use ($mean) {
@@ -63,11 +65,9 @@ function calculateStandardDeviation($data) {
     return sqrt($sumSquaredDifferences / count($data));
 }
 
-// Variabel untuk menyimpan hasil
 $statisticsResult = "";
 $data = [];
 
-// Query untuk mengambil data UKT
 $sql = "SELECT ukt FROM students WHERE ukt IS NOT NULL";
 $result = $conn->query($sql);
 
@@ -75,10 +75,9 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $data[] = (float)$row['ukt'];
     }
-    sort($data); // Urutkan data
+    sort($data); 
 }
 
-// Proses tombol yang diklik
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = $_POST["action"];
 
@@ -100,13 +99,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $statisticsResult = "Maksimum: " . max($data);
                 break;
             case "outliers":
-                $outliers = calculateOutliers($data);
-                if (empty($outliers)) {
+                $outlierData = calculateOutliers($data); 
+                $lowerBound = $outlierData['lowerBound'];
+                $upperBound = $outlierData['upperBound'];
+
+                if (empty($outlierData['outliers'])) {
                     $statisticsResult = "Tidak ada pencilan.";
                 } else {
-                    $statisticsResult = "Pencilan: " . implode(", ", $outliers);
+                    $outliers = implode(", ", $outlierData['outliers']);
+                    $statisticsResult = "Pencilan: " . $outliers . "<br>Pencilan Bawah: " . $lowerBound . "<br>Pencilan Atas: " . $upperBound;
+                }
+
+                if (empty($outlierData['outliers'])) {
+                    $statisticsResult .= "<br>Pencilan Bawah: " . $lowerBound . "<br>Pencilan Atas: " . $upperBound;
                 }
                 break;
+
             case "std_dev":
                 $statisticsResult = "Standar Deviasi: " . calculateStandardDeviation($data);
                 break;
