@@ -9,7 +9,7 @@ $uktError = "";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nama = $_POST["nama"];
+    $nama = $_POST["nama"]; 
     $nim = $_POST["nim"];
     $alamat = $_POST["alamat"];
     $prodi = $_POST["prodi"];
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (!preg_match('/^\d{6,8}$/', $ukt)) {
-        $uktError = "UKT must be between 6 and 8 digits.";
+        $uktError = "UKT must be between 6 and 8    .";
         $valid = false;
     }
 

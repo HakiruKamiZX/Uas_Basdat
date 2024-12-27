@@ -10,7 +10,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
 $sql = "SELECT * FROM students";
 $result = $conn->query($sql);
 ?>
@@ -24,7 +23,12 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="public/styles.css">
 </head>
 <body>
+    <!-- <div id="container"> -->
         <h1>Data Mahasiswa</h1>
+
+        <a href="nomor1.php">
+            <button type="button" class="submit-btn">Calculate Statistics</button>
+        </a>
 
         <table>
             <thead>
@@ -48,7 +52,7 @@ $result = $conn->query($sql);
                                 <td>" . $row["alamat"] . "</td>
                                 <td>" . $row["prodi"] . "</td>
                                 <td>" . $row["ukt"] . "</td>
-                              </tr>";
+                            </tr>";
                     }
                 } else {
                     echo "<tr><td colspan='6'>No data found</td></tr>";
@@ -57,6 +61,8 @@ $result = $conn->query($sql);
                 ?>
             </tbody>
         </table>
+    <!-- </div> -->
+
 
         <a href="index.html" class="back-link">
             <button class="back-btn">
