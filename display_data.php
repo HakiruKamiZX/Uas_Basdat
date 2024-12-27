@@ -25,11 +25,14 @@ $result = $conn->query($sql);
 <body>
     <!-- <div id="container"> -->
         <h1>Data Mahasiswa</h1>
-
+        <div id="container-btn">
         <a href="nomor1.php">
             <button type="button" class="submit-btn">Calculate Statistics</button>
         </a>
-
+        <a href="nomor3verA.php">
+            <button type="button" class="submit-btn">Calculate Statistics</button>
+        </a>
+        </div>
         <table>
             <thead>
                 <tr>
